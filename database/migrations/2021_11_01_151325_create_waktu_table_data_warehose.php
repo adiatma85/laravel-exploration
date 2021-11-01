@@ -16,7 +16,7 @@ class CreateWaktuTableDataWarehose extends Migration
         Schema::create('waktu', function (Blueprint $table) {
             $table->id();
             $table->integer('tahun')->nullable();
-            $table->integer('bulan')->nullable();
+            $table->string('bulan')->nullable();
             $table->integer('tanggal')->nullable();
             $table->timestamps();
         });

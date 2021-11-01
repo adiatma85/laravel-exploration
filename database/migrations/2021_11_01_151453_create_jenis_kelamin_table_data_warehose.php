@@ -15,6 +15,7 @@ class CreateJenisKelaminTableDataWarehose extends Migration
     {
         Schema::create('jenis_kelamin', function (Blueprint $table) {
             $table->id();
+            $table->string('jenis_kelamin')->nullable();
             $table->timestamps();
         });
     }
