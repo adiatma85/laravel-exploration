@@ -15,11 +15,14 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             // Dimensi Waktu Seeder
-            Dimensi_Waktu_Seeder::class,
+            // Dimensi_Waktu_Seeder::class,
             // Dimensi Status Seeder
-            Status_Seeder::class,
+            // Status_Seeder::class,
             // Jenis Kelamin Seeder
-            Jenis_Kelamin_Seeder::class,
+            // Jenis_Kelamin_Seeder::class,
+
+            // Raw Data Seeder
+            RawDataSeeder2::class,
         ]);
     }
 }
