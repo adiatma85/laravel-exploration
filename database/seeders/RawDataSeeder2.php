@@ -59,7 +59,7 @@ class RawDataSeeder2 extends Seeder
             $randomKotaKabupaten = $listKotaKabupatenApi[rand(0, count($listKotaKabupatenApi) - 1)];
 
             // Random Kecamatan
-            $listKecamatanApi = json_decode($client->get(env('API_PROVINSI_KOTA_BASE_URL') . "/districts/$$randomKotaKabupaten->id.json")->getBody()->getContents());
+            $listKecamatanApi = json_decode($client->get(env('API_PROVINSI_KOTA_BASE_URL') . "/districts/$randomKotaKabupaten->id.json")->getBody()->getContents());
             $randomKecamatan = $listKecamatanApi[rand(0, count($listKecamatanApi) - 1)];
 
             // Another Random not related to API
