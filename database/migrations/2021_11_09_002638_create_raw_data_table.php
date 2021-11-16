@@ -17,6 +17,7 @@ class CreateRawDataTable extends Migration
             $table->id();
             $table->string('provinsi')->nullable();
             $table->string('kota')->nullable();
+            $table->string('kecamatan')->nullable();
             $table->integer('usia')->nullable();
             $table->string('jenis_kelamin')->nullable();
             $table->integer('tahun')->nullable();

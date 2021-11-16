@@ -48,8 +48,8 @@ class RawDataSeeder2 extends Seeder
             'Perempuan',
         ];
 
-        // 50000 loop
-        for ($i = 0; $i < 50000; $i++) {
+        // 500000 loop
+        for ($i = 0; $i < 500000; $i++) {
             // Random Provinsi
             $listProvinsiApi = json_decode($client->get(env('API_PROVINSI_KOTA_BASE_URL') . '/provinces.json')->getBody()->getContents());
             $randomProvinsi = $listProvinsiApi[rand(0, count($listProvinsiApi) - 1)];
@@ -58,17 +58,22 @@ class RawDataSeeder2 extends Seeder
             $listKotaKabupatenApi = json_decode($client->get(env('API_PROVINSI_KOTA_BASE_URL') . "/regencies/$randomProvinsi->id.json")->getBody()->getContents());
             $randomKotaKabupaten = $listKotaKabupatenApi[rand(0, count($listKotaKabupatenApi) - 1)];
 
+            // Random Kecamatan
+            $listKecamatanApi = json_decode($client->get(env('API_PROVINSI_KOTA_BASE_URL') . "/districts/$$randomKotaKabupaten->id.json")->getBody()->getContents());
+            $randomKecamatan = $listKecamatanApi[rand(0, count($listKecamatanApi) - 1)];
+
             // Another Random not related to API
-            $randomTanggal = rand(0, 32);
+            $randomTanggal = rand(1, 31);
             $randomTahun = $listTahun[rand(0, count($listTahun) - 1)];
             $randomBulan = $listBulan[rand(0, count($listBulan) - 1)];
             $randomStatus = $listStatus[rand(0, count($listStatus) - 1)];
             $randomJenisKelamin = $listJenisKelamin[rand(0, count($listJenisKelamin) - 1)];
-            $randomUsia = rand(0, 90);
+            $randomUsia = rand(1, 95);
 
             RawData::insert([
                 'provinsi' => ucfirst($randomProvinsi->name),
                 'kota' => ucfirst($randomKotaKabupaten->name),
+                'kecamatan' => ucfirst($randomKecamatan->name),
                 'usia' => $randomUsia,
                 'jenis_kelamin' => $randomJenisKelamin,
                 'tahun' => $randomTahun,
