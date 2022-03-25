@@ -14,15 +14,14 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
-            // Dimensi Waktu Seeder
-            // Dimensi_Waktu_Seeder::class,
-            // Dimensi Status Seeder
-            // Status_Seeder::class,
-            // Jenis Kelamin Seeder
-            // Jenis_Kelamin_Seeder::class,
-
-            // Raw Data Seeder
-            RawDataSeeder2::class,
+            // Replit
+            UserSeeder::class,
+            CustomerSeeder::class,
+            ItemSeeder::class,
+            CategorySeeder::class,
+            ItemCategorySeeder::class,
+            OrderSeeder::class,
+            OrderDetailSeeder::class,
         ]);
     }
 }

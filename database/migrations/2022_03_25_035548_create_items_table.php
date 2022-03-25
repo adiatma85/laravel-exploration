@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateWaktuTableDataWarehose extends Migration
+class CreateItemsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateWaktuTableDataWarehose extends Migration
      */
     public function up()
     {
-        Schema::create('waktu', function (Blueprint $table) {
+        Schema::create('items', function (Blueprint $table) {
             $table->id();
-            $table->integer('tahun')->nullable();
-            $table->string('bulan')->nullable();
-            $table->integer('tanggal')->nullable();
+            $table->string('name')->nullable();
+            $table->integer('price')->default(0);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -29,6 +29,6 @@ class CreateWaktuTableDataWarehose extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('waktu');
+        Schema::dropIfExists('items');
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateLokasiTableDataWarehose extends Migration
+class CreateCategoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class CreateLokasiTableDataWarehose extends Migration
      */
     public function up()
     {
-        Schema::create('lokasi', function (Blueprint $table) {
+        Schema::create('categories', function (Blueprint $table) {
             $table->id();
-            $table->string('provinsi')->nullable();
-            $table->string('kota')->nullable();
-            $table->string('kecamatan')->nullable();
+            $table->string('name')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -29,6 +28,6 @@ class CreateLokasiTableDataWarehose extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('lokasi');
+        Schema::dropIfExists('categories');
     }
 }

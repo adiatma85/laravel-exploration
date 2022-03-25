@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRentanUsiaTableDataWarehose extends Migration
+class CreateCustomersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,12 @@ class CreateRentanUsiaTableDataWarehose extends Migration
      */
     public function up()
     {
-        Schema::create('rentan_usia', function (Blueprint $table) {
+        Schema::create('customers', function (Blueprint $table) {
             $table->id();
-            $table->string('group')->nullable();
-            $table->integer('usia')->nullable();
+            $table->string('name')->nullable(false);
+            $table->string('email')->unique()->nullable(false);
+            $table->string('phone')->unique()->nullable(false);
+            $table->string('address')->nullable(false);
             $table->timestamps();
         });
     }
@@ -28,6 +30,6 @@ class CreateRentanUsiaTableDataWarehose extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('rentan_usia');
+        Schema::dropIfExists('customers');
     }
 }
